@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/******************
+
+BACKGROUND-COLOR:
+    #607D8B
+    #37474F
+    #CFD8DC
+    #424242
+
+BORDER:
+    #000000
+
+BUTTONS:
+    #4CAF50
+    #2E7D32
+    #F44335
+    #C52828
+    #FFEB3A
+    #FDD834
+    #02A9F4
+    #0377BC
+
+******************/
+
+.back {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    width: 85vmin;
+    height: 85vmin;
+    border: 1rem solid #000;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #607D8B;
+}
+
+.box-content {
+    width: 85%;
+    height: 85%;
+
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 5%;
+
+    position: relative;
+
+    background-color: transparent;
+}
+
+/******************
+
+****  PRESSES  ****
+
+******************/
+
+.press {
+    width: 100%;
+    height: 100%;
+    border: 1rem solid #000;
+    border-radius: 100% 10% 0%;
+
+    transition: background-color 0.1s ease-out;
+}
+
+.press--green {
+    background-color: #4CAF50;
+    transform: rotateZ(0deg);
+}
+
+.press--green:hover ,
+.press--green.on{
+    background-color: #2E7D32;
+}
+
+.press--red {
+    background-color: #F44335;
+    transform: rotateZ(90deg);
+}
+
+.press--red:hover,
+.press--red.on {
+    background-color: #C52828;
+}
+
+.press--blue {
+    background-color: #FFEB3A;
+    transform: rotateZ(270deg);
+}
+
+.press--blue:hover,
+.press--blue.on {
+    background-color: #FDD834;
+}
+
+.press--yellow {
+    background-color: #02A9F4;
+    transform: rotateZ(180deg);
+}
+
+.press--yellow:hover,
+.press--yellow.on {
+    background-color: #0377BC;
+}
+
+/******************
+
+****  CONTROLS ****
+
+******************/
+
+.controls-hud {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    background-color: #607D8B;
+
+    left: 25%;
+    top: 25%;
+
+    border: 1rem solid #000;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls-hud::before {
+    content: '';
+    width: 13.5%;
+    height: 130%;
+
+    position: absolute;
+    top: -15%;
+    left: 44%;
+
+    background-color: #607D8B;
+}
+
+.controls-hud::after {
+    content: '';
+    width: 130%;
+    height: 12.4%;
+
+    position: absolute;
+    top: 44%;
+    left: -15%;
+
+    background-color: #607D8B;
+}
+
+.controls-panel {
+    width: 80%;
+    height: 80%;
+    border: 1rem solid #000;
+    border-radius: 50%;
+
+    background-color: #424242;
+
+    z-index: 69;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+}
+
+.controls-panel::before {
+    content: '';
+
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+
+    background-color: #CFD8DC;
+
+    clip-path: inset(30% 0 0 0);
+    position: absolute;
+}
+
+.controls-panel::after {
+    content: '';
+    
+    width: 100%;
+    height: 1rem;
+    background-color: #000;
+
+    position: absolute;
+    top: 25%;
+}
+
+.leds {
+    width: 100%;
+    height: 22%;
+
+    margin-top: 30%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+
+    z-index: 69;
+}
+
+.led-btn {
+    width: 22%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid red;
+}
+
+.btn-toggle {
+    padding: 0;
+    width: 50%;
+    height: 20%;
+    border-radius: 40px;
+    border: 3px solid #000;
+
+    z-index: 69;
+}
