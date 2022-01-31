@@ -6,6 +6,7 @@
 
 body {
     font-family: "M Plus Rounded 1c", sans-serif;
+    color: #fff;
 }
 
 /******************
@@ -15,6 +16,7 @@ BACKGROUND-COLOR:
     #37474F
     #CFD8DC
     #424242
+    #000022
 
 BORDER:
     #000000
@@ -104,6 +106,42 @@ BUTTONS:
     transform-origin: 55% 55%;
 }
 
+/******************
+****   NAVBAR  ****
+******************/
+
+.navigation {
+    width: 100vw;
+    height: 10vmin;
+    padding: 10px 5%;
+    z-index: 69;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-name {
+    margin-right: auto;
+    font-size: 2rem;
+}
+
+.link-to-gh {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+
+    font-size: 270%;
+}
+
+/******************
+****  GAME BOX ****
+******************/
+
 .box {
     width: 85vmin;
     height: 85vmin;
@@ -131,9 +169,7 @@ BUTTONS:
 }
 
 /******************
-
 ****  PRESSES  ****
-
 ******************/
 
 .press {
@@ -318,10 +354,10 @@ BUTTONS:
     padding: 5px 0;
     font-size: 0.9rem;
     color: #aa8ed6;
-  }
-  
-  .author-name {
+}
+
+.author-name {
     font-weight: bold;
     color: #fff;
     color: #d4d4d9;
-  }
+}
