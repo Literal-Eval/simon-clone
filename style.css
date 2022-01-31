@@ -82,7 +82,7 @@ BUTTONS:
 }
 
 .press--green:hover ,
-.press--green.on{
+.press--green.on {
     background-color: #2E7D32;
 }
 
