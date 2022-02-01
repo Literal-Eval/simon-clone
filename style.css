@@ -47,7 +47,6 @@ BUTTONS:
     justify-content: center;
 
     --bubble-color: rgba(255, 255, 255, 0.07);
-    /* --bubble-color: #F44335; */
 }
 
 @keyframes morph {
@@ -411,8 +410,8 @@ BUTTONS:
 
 .score-board {
     position: absolute;
-    bottom: 0;
-    right: -25vw;
+    bottom: 10vh;
+    right: 8vw;
 
     font-size: 1.6rem;
     font-weight: 600;
@@ -436,4 +435,21 @@ BUTTONS:
     font-weight: bold;
     color: #fff;
     color: #d4d4d9;
+}
+
+/**************************
+****** SMALL DISPLAY ******
+**************************/
+
+@media only screen and (max-width: 768px) {
+    .back {
+        flex-direction: column;
+        gap: 10%;
+    }
+
+    .score-board {
+        position: relative;
+        right: unset;
+        bottom: unset;
+    }
 }
