@@ -9,6 +9,7 @@ class Game {
         this.btnToggle = document.querySelector(".btn-toggle");
         this.currentScoreCard = document.querySelector('.current-score-card');
         this.maxScoreCard = document.querySelector('.max-score-card');
+        this.back = document.querySelector('.back');
         this.greenAudio = new Audio("assets/sounds/green.mp3");
         this.redAudio = new Audio("assets/sounds/red.mp3");
         this.blueAudio = new Audio("assets/sounds/blue.mp3");
@@ -28,8 +29,8 @@ class Game {
         for (let i = 0; i < 4; i++) {
             this.presses[i].addEventListener("click", () => {
                 if (this.isRunning) {
-                    this.audioList[i].play();
                     if (this.currentStack[this.currentIndex] == i) {
+                        this.audioList[i].play();
                         if (this.currentStack.length == this.currentIndex + 1) {
                             this.currentScore++;
                             this.currentScoreCard.textContent = `${this.currentScore}`;
@@ -82,6 +83,11 @@ class Game {
         this.isRunning = false;
         this.currentScore = 0;
         this.currentScoreCard.textContent = '0';
+        this.btnToggle.classList.remove('on');
+        this.back.style.setProperty('--bubble-color', 'red');
+        setTimeout(() => {
+            this.back.style.setProperty('--bubble-color', 'rgba(255, 255, 255, 0.07)');
+        }, 2000);
     }
 }
 var game = new Game();

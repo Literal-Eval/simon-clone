@@ -3,9 +3,9 @@ class Game {
         for (let i: number = 0; i < 4; i++) {
             this.presses[i].addEventListener("click", () => {
                 if (this.isRunning) {
-                    this.audioList[i].play();
-
                     if (this.currentStack[this.currentIndex] == i) {
+                        this.audioList[i].play();
+                        
                         if (this.currentStack.length == this.currentIndex + 1) {
                             this.currentScore++;
                             this.currentScoreCard.textContent = `${this.currentScore}`;
@@ -50,6 +50,8 @@ class Game {
 
     currentScoreCard: HTMLElement = document.querySelector('.current-score-card')!;
     maxScoreCard: HTMLElement = document.querySelector('.max-score-card')!;
+
+    back: HTMLElement = document.querySelector('.back')!;
 
     greenAudio: HTMLAudioElement = new Audio("assets/sounds/green.mp3");
     redAudio: HTMLAudioElement = new Audio("assets/sounds/red.mp3");
@@ -102,6 +104,13 @@ class Game {
 
         this.currentScore = 0;
         this.currentScoreCard.textContent = '0';
+        this.btnToggle.classList.remove('on');
+
+        this.back.style.setProperty('--bubble-color', 'red');
+
+        setTimeout(() => {
+            this.back.style.setProperty('--bubble-color', 'rgba(255, 255, 255, 0.07)');
+        }, 2000);
     }
 }
 
