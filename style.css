@@ -272,10 +272,10 @@ BUTTONS:
 .controls-hud::before {
     content: "";
     width: 13.5%;
-    height: 130%;
+    height: 140%;
 
     position: absolute;
-    top: -15%;
+    top: -18%;
     left: 44%;
 
     background-color: #607d8b;
@@ -283,12 +283,12 @@ BUTTONS:
 
 .controls-hud::after {
     content: "";
-    width: 130%;
+    width: 140%;
     height: 12.4%;
 
     position: absolute;
     top: 44%;
-    left: -15%;
+    left: -18%;
 
     background-color: #607d8b;
 }
