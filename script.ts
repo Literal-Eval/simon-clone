@@ -7,11 +7,18 @@ class Game {
 
                     if (this.currentStack[this.currentIndex] == i) {
                         if (this.currentStack.length == this.currentIndex + 1) {
+                            this.currentScore++;
+                            this.currentScoreCard.textContent = `${this.currentScore}`;
+                            
                             setTimeout(() => {
                                 this.getNew();
                             }, 500);
                         }
                     } else {
+                        if (this.currentScore > this.maxScore) {
+                            this.maxScore = this.currentScore;
+                            this.maxScoreCard.textContent = `${this.maxScore}`;
+                        }
                         this.gameOver();
                     }
 
@@ -25,6 +32,9 @@ class Game {
 
             if (this.isRunning) {
                 this.getNew();
+                this.btnToggle.classList.add('on');
+            } else {
+                this.btnToggle.classList.remove('on');
             }
         });
     }
@@ -37,6 +47,9 @@ class Game {
     pressYellow: HTMLElement = document.querySelector(".press--yellow")!;
 
     btnToggle: HTMLElement = document.querySelector(".btn-toggle")!;
+
+    currentScoreCard: HTMLElement = document.querySelector('.current-score-card')!;
+    maxScoreCard: HTMLElement = document.querySelector('.max-score-card')!;
 
     greenAudio: HTMLAudioElement = new Audio("assets/sounds/green.mp3");
     redAudio: HTMLAudioElement = new Audio("assets/sounds/red.mp3");
@@ -52,6 +65,8 @@ class Game {
     ];
 
     isRunning: boolean = false;
+    currentScore: number = 0;
+    maxScore: number = 0;
     currentIndex: number = -1;
     currentStack: number[] = [];
 
@@ -84,6 +99,9 @@ class Game {
         this.currentIndex = -1;
         this.currentStack.length = 0;
         this.isRunning = false;
+
+        this.currentScore = 0;
+        this.currentScoreCard.textContent = '0';
     }
 }
 

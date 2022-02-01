@@ -28,6 +28,7 @@ BUTTONS:
     #C52828
     #FFEB3A
     #FDD834
+    #998d23
     #02A9F4
     #0377BC
 
@@ -35,7 +36,7 @@ BUTTONS:
 
 .back {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
 
     background-color: #000022;
@@ -44,6 +45,9 @@ BUTTONS:
     display: flex;
     align-items: center;
     justify-content: center;
+
+    --bubble-color: rgba(255, 255, 255, 0.07);
+    /* --bubble-color: #F44335; */
 }
 
 @keyframes morph {
@@ -70,7 +74,7 @@ BUTTONS:
     width: 70vmax;
     height: 70vmax;
     border-radius: 41% 59% 41% 59% / 57% 51% 49% 43%;
-    background: rgba(255, 255, 255, 0.07);
+    background: var(--bubble-color);
     animation: morph 15s linear infinite alternate, spin 20s linear infinite;
     animation-name: morph, spin;
     animation-duration: 15s, 20s;
@@ -92,7 +96,7 @@ BUTTONS:
     width: 70vmin;
     height: 70vmin;
     border-radius: 41% 59% 41% 59% / 57% 51% 49% 43%;
-    background: rgba(255, 255, 255, 0.07);
+    background: var(--bubble-color);
     animation: morph 15s linear infinite alternate, spin 20s linear infinite;
     animation-name: morph, spin;
     animation-duration: 15s, 20s;
@@ -111,7 +115,7 @@ BUTTONS:
 ******************/
 
 .navigation {
-    width: 100vw;
+    width: 100%;
     height: 10vmin;
     padding: 10px 5%;
     z-index: 69;
@@ -127,15 +131,32 @@ BUTTONS:
 
 .logo-name {
     margin-right: auto;
-    font-size: 2rem;
+    font-size: 2.4rem;
+}
+
+.what-is-this {
+    font-size: 120%;
+    cursor: pointer;
+    border-radius: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.0);
+    padding: 5px 10px;
+
+    transition: background-color 0.2s ease-out, color 0.1s ease-out, border-color 0.1s ease-out;
+}
+
+.what-is-this:hover {
+    background-color: #fff;
+    color: #000022;
+    border-color:#000022;
 }
 
 .link-to-gh {
     color: #fff;
     text-decoration: none;
-    position: relative;
-
     font-size: 270%;
+
+    position: relative;
+    margin-left: 2%;
 }
 
 /******************
@@ -153,6 +174,9 @@ BUTTONS:
     justify-content: center;
 
     background-color: #607d8b;
+
+    z-index: 42;
+    position: relative;
 }
 
 .box-content {
@@ -208,7 +232,7 @@ BUTTONS:
 
 .press--blue:hover,
 .press--blue.on {
-    background-color: #fdd834;
+    background-color: #998d23;
 }
 
 .press--yellow {
@@ -222,9 +246,7 @@ BUTTONS:
 }
 
 /******************
-
 ****  CONTROLS ****
-
 ******************/
 
 .controls-hud {
@@ -334,18 +356,68 @@ BUTTONS:
 
 .btn-toggle {
     padding: 0;
-    width: 50%;
+    width: 40%;
     height: 20%;
+
     border-radius: 40px;
     border: 3px solid #000;
+    background-color: #fff;
+    transition: background-color 0.2s ease-out;
 
     z-index: 69;
+    position: relative;
+}
+
+.btn-toggle:hover {
+    background-color: #002;
+}
+
+.btn-toggle.on {
+    background-color: #000022;
+}
+
+.btn-toggle-ball {
+    width: 40%;
+    height: 90%;
+    margin: 2%;
+
+    position: absolute;
+    left: 2%;
+    top: 1%;
+
+    border: 2px solid #fff;
+    border-radius: 50% 50% 30% 50%;
+    
+    background-color: #000;
+    transition: background-color 0.2s ease-out, left 0.2s ease-out;
+}
+
+.btn-toggle.on:hover .btn-toggle-ball {
+    background-color: #fff;
+}
+
+.btn-toggle.on .btn-toggle-ball{
+    left: 55%;
+    border-radius: 50% 50% 50% 30%;
 }
 
 /******************
+*** SCORE BOARD ***
+******************/
 
-**** AUTHOR Sec ***
+.score-board {
+    position: absolute;
+    bottom: 0;
+    right: -25vw;
 
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    display: flex;
+}
+
+/******************
+**** AUTHOR SEC ***
 ******************/
 
 .made-with-section {

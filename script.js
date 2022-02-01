@@ -7,6 +7,8 @@ class Game {
         this.pressBlue = document.querySelector(".press--blue");
         this.pressYellow = document.querySelector(".press--yellow");
         this.btnToggle = document.querySelector(".btn-toggle");
+        this.currentScoreCard = document.querySelector('.current-score-card');
+        this.maxScoreCard = document.querySelector('.max-score-card');
         this.greenAudio = new Audio("assets/sounds/green.mp3");
         this.redAudio = new Audio("assets/sounds/red.mp3");
         this.blueAudio = new Audio("assets/sounds/blue.mp3");
@@ -19,6 +21,8 @@ class Game {
             this.yellowAudio,
         ];
         this.isRunning = false;
+        this.currentScore = 0;
+        this.maxScore = 0;
         this.currentIndex = -1;
         this.currentStack = [];
         for (let i = 0; i < 4; i++) {
@@ -27,12 +31,18 @@ class Game {
                     this.audioList[i].play();
                     if (this.currentStack[this.currentIndex] == i) {
                         if (this.currentStack.length == this.currentIndex + 1) {
+                            this.currentScore++;
+                            this.currentScoreCard.textContent = `${this.currentScore}`;
                             setTimeout(() => {
                                 this.getNew();
                             }, 500);
                         }
                     }
                     else {
+                        if (this.currentScore > this.maxScore) {
+                            this.maxScore = this.currentScore;
+                            this.maxScoreCard.textContent = `${this.maxScore}`;
+                        }
                         this.gameOver();
                     }
                     this.currentIndex++;
@@ -43,6 +53,10 @@ class Game {
             this.isRunning = !this.isRunning;
             if (this.isRunning) {
                 this.getNew();
+                this.btnToggle.classList.add('on');
+            }
+            else {
+                this.btnToggle.classList.remove('on');
             }
         });
     }
@@ -66,6 +80,8 @@ class Game {
         this.currentIndex = -1;
         this.currentStack.length = 0;
         this.isRunning = false;
+        this.currentScore = 0;
+        this.currentScoreCard.textContent = '0';
     }
 }
 var game = new Game();
